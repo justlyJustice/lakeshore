@@ -21,6 +21,21 @@ body {
   width: 100%;
 }
 
+.flex {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.flex .form-group {
+  margin: 2px 0;
+
+  margin: 0px 0px !important;
+  /* width: 45%; */
+  width: 47%;
+}
+
 button {
   border: none;
   cursor: pointer;
@@ -35,7 +50,7 @@ input {
 
 input:focus,
 input:active {
-  border: none;
+  border: 1px solid #eee !important;
 }
 
 .container {

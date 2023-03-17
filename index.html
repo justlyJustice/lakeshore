@@ -38,15 +38,41 @@
       <div class="form-contain">
         <form id="app-form">
           <div class="form-group">
-            <label for="account_no"> Account No <span>*</span> </label>
+            <label for="name">Name<span>*</span> </label>
 
             <input
               autofocus
-              id="account_no"
-              type="number"
+              id="name"
+              type="text"
               class="form-control"
               required
             />
+          </div>
+
+          <div class="flex">
+            <div class="form-group">
+              <label for="account_no"> Account No <span>*</span> </label>
+
+              <input
+                autofocus
+                id="account_no"
+                type="number"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="loan_amount"> Loan Amount <span>*</span> </label>
+
+              <input
+                autofocus
+                id="loan_amount"
+                type="number"
+                class="form-control"
+                required
+              />
+            </div>
           </div>
 
           <div class="form-group">
@@ -61,7 +87,7 @@
           </div>
 
           <button type="submit" id="send-btn">
-            Submit <i class="fa fa-arrow-right icon"></i>
+            Enroll <i class="fa fa-arrow-right icon"></i>
           </button>
         </form>
       </div>
